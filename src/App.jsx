@@ -5,6 +5,7 @@ import Login from './features/auth/Login.jsx';
 import Register from './features/auth/Register.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import ProfilePage from './pages/ProfilePage.jsx';
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -28,6 +29,15 @@ function App() {
           element={
             <PrivateRoute>
               <Dashboard />
+            </PrivateRoute>
+          }
+        />
+          {/* Rotta privata: Profilo */}
+        <Route
+          path="/user"
+          element={
+            <PrivateRoute>        
+              <ProfilePage/>
             </PrivateRoute>
           }
         />

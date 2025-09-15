@@ -1,0 +1,20 @@
+import axios from 'axios';
+
+const API_URL = 'http://localhost:5000/api/users/';
+
+// Funzione per ottenere il profilo utente
+const getProfile = async (token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await axios.get(API_URL + 'profile', config);
+  return response.data;
+};
+
+const userProfileService = {
+  getProfile,
+};
+
+export default userProfileService;

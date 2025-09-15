@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import { logout, reset } from '../features/auth/authSlice.js';
 import { Box, Typography, Button } from '@mui/material';
 
@@ -34,6 +34,9 @@ function Dashboard() {
         Questa è la tua area personale protetta.
       </Typography>
       <Box sx={{ textAlign: 'center' }}>
+        <Button variant="contained" color="primary" sx={{ mr: 2 }} component={Link} to="/user">
+          Vai al Profilo
+        </Button>
         <Button variant="contained" color="error" onClick={handleLogout}>
           Logout
         </Button>
