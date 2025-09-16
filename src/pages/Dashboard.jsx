@@ -37,6 +37,9 @@ function Dashboard() {
         <Button variant="contained" color="primary" sx={{ mr: 2 }} component={Link} to="/user">
           Vai al Profilo
         </Button>
+        <Button variant="contained" color="primary" sx={{ mr: 2 }} component={Link} to="/workout">
+          Allenamenti
+        </Button>
         <Button variant="contained" color="error" onClick={handleLogout}>
           Logout
         </Button>

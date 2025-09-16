@@ -4,7 +4,7 @@ import authService from '../../api/authService';
 const user = JSON.parse(localStorage.getItem('user'));
 
 const initialState = {
-  user: user ? user : null,
+  user: user || null,
   isLoading: false,
   isError: false,
   isSuccess: false,
@@ -53,7 +53,6 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Register
       .addCase(register.pending, (state) => { state.isLoading = true; })
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -65,7 +64,6 @@ const authSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
       })
-      // Login
       .addCase(login.pending, (state) => { state.isLoading = true; })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -77,7 +75,6 @@ const authSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
       })
-      // Logout
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
       });

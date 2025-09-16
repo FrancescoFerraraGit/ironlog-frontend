@@ -6,6 +6,7 @@ import Register from './features/auth/Register.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
+import WorkoutPage from './pages/WorkoutPage.jsx'
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -38,6 +39,16 @@ function App() {
           element={
             <PrivateRoute>        
               <ProfilePage/>
+            </PrivateRoute>
+          }
+        />
+
+        {/* Rotta privata: Profilo */}
+        <Route
+          path="/workout"
+          element={
+            <PrivateRoute>        
+              <WorkoutPage/>
             </PrivateRoute>
           }
         />
